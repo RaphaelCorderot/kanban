@@ -1,0 +1,12 @@
+<div *ngIf="category" class="container">
+    <mat-form-field floatLabel="never">
+        <mat-label [innerText]="this.category.type"></mat-label>
+        <input matInput>
+    </mat-form-field>
+        <div class="example-box" *ngFor="let task of this.category.tasks" >
+            <task [task]="task" class="task" cdkDrag></task>
+        </div>   
+        <div>
+            <button class="button" (click)="createEmptyTask()">Ajouter une tâche</button>
+        </div>
+</div>

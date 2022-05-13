@@ -1,0 +1,15 @@
+<div class="kanban"cdkDropListGroup>
+    <div *ngFor="let category of kanban?.categories" class="list" >
+      <div>
+        <kanban-categories cdkDropList
+        [cdkDropListData]="category.tasks" 
+        (cdkDropListDropped)="drop($event)"
+        [category]="category"></kanban-categories>
+      </div>
+    </div>
+    <div class="button">
+      <button mat-raised-button (click)="addNewCategory()" [innerText]="'add a new category'"></button>
+      <button mat-raised-button (click)="saveKanban()" [innerText]="'Save kanban'"></button>
+
+    </div>
+</div>

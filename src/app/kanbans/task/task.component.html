@@ -1,0 +1,29 @@
+<div *ngIf="task" class="task">
+    <div *ngIf="this.task.designatedUser" class="user">
+        <span [innerText]="this.task.designatedUser.firstname"></span>
+    </div>
+    <div class="time">
+        <label>EstimatedTime</label>
+        <input type="text" [(ngModel)]="this.task.estimatedTime">
+    </div>
+    <div class="description">
+        <textarea cols="35" rows="5" [(ngModel)]="this.task.description"></textarea>
+    </div>
+    <div class="tags">
+        <mat-form-field class="chip-list" appearance="fill">
+            <mat-label>Tag associé</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip *ngFor="let tag of this.task.tags" (removed)="remove(tag)">
+                {{tag}}
+                <button matChipRemove>
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </mat-chip>
+              <input placeholder="New tag"
+                     [matChipInputFor]="chipList"
+                     [matChipInputAddOnBlur]="true"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+    </div>
+</div>

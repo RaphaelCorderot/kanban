@@ -1,0 +1,24 @@
+/* Define standard variables and values for website */
+$bgcolor: rgb(241, 241, 241);
+$fontsize: 18px;
+
+.kanban {
+  background-color: $bgcolor;
+  font-size: $fontsize;
+  display: flex;
+  .button{
+    position:absolute;
+    width:80px;
+    height:50px;
+    bottom:50px;
+    right: 30px;
+  }
+  .list{
+    &:not(:first-child)
+    {
+      margin-left: 15px;
+    }
+    flex-direction: row;
+  }
+}
+
